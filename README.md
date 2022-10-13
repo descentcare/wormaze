@@ -4,7 +4,7 @@ A game written entirely in bash, no additional dependencies required (only bash 
 
 It's a TUI clone of https://erayzesen.itch.io/worm
 
-![screen-gif](./example.gif)
+![](./sample.gif)
 
 ## usage
 
