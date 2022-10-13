@@ -1,10 +1,10 @@
-#**WORMAZE**
+# **WORMAZE**
 
 A game written entirely in bash, no additional dependencies required (only bash version 4 and above)
 
 It's a TUI clone of https://erayzesen.itch.io/worm
 
-##usage
+## usage
 
 ```
 $ ./wormaze lvlfile
@@ -18,7 +18,7 @@ $ ./wormaze lvl/1
 
 hjkl or awsd to move, q to quit
 
-##lvlfile format
+## lvlfile format
 
 Every line is coordinates for an object in "line;column" format(y;x).
 
@@ -28,7 +28,7 @@ Every line is coordinates for an object in "line;column" format(y;x).
 
 I will be adding levels in the future
 
-##TODO
+## TODO
 
 - usage message
 - resize map on terminal resize
