@@ -81,6 +81,19 @@ win(){
     exit
 }
 
+lose(){
+    move "$((startline+height+1));$((startcol))"
+    printf "├"
+    move "$((startline+height+1));$((startcol+box1width+box2width+2))"
+    printf "┤"
+    move "$((startline+height+2));$((startcol))"
+    printf "│ YOU LOSE!\033[%dC│" "$((box1width+box2width-9))"
+    move "$((startline+height+2));$((startcol))"
+    printf "\033[1B└──────────────────────────────────┘"
+    move "0;0"
+    exit
+}
+
 draw_map(){
     move "$PLAYERPOS"
     printf "%b" "$playerfs"
@@ -119,8 +132,7 @@ move_left(){
             exit
         fi
         if [[ "$x" -le "$startcol" ]]; then
-            move "0;0"
-            echo "YOU LOSE"
+            lose
             exit
         fi
         PLAYERPOS="$y;$x"
@@ -144,8 +156,7 @@ move_right(){
             exit
         fi
         if [[ "$x" -ge $((startcol+box1width+1)) ]]; then
-            move "0;0"
-            echo "YOU LOSE"
+            lose
             exit
         fi
         PLAYERPOS="$y;$x"
@@ -169,8 +180,7 @@ move_up(){
             exit
         fi
         if [[ "$y" -le "$startline" ]]; then
-            move "0;0"
-            echo "YOU LOSE"
+            lose
             exit
         fi
         PLAYERPOS="$y;$x"
@@ -194,8 +204,7 @@ move_down(){
             exit
         fi
         if [[ "$y" -ge $((startline+height+1)) ]]; then
-            move "0;0"
-            echo "YOU LOSE"
+            lose
             exit
         fi
         PLAYERPOS="$y;$x"
